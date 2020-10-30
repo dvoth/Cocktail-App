@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Cocktail_App import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ingredients/', views.IngredientList.as_view()),
+    path('recipes/', views.RecipeList.as_view()),
 ]

@@ -1,0 +1,4 @@
+Cocktail_App/env/
+.vscode/
+__pycache__/
+*.sqlite3

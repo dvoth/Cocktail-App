@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Cocktail_App.apps.CocktailAppConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
