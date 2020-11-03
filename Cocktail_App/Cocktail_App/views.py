@@ -14,11 +14,13 @@ from Cocktail_App.serializers import IngredientTypeSerializer
 from Cocktail_App.serializers import RecipeSerializer
 from Cocktail_App.serializers import RecipeStepSerializer
 from Cocktail_App.serializers import RecipeIngredientSerializer
+from Cocktail_App.permissions import IsOwnerOrReadOnly
 
-class IngredientList(generics.ListCreateAPIView):
+class IngredientViewSet(viewsets.ModelViewSet):
     queryset = Ingredient.objects.all()
     serializer_class = IngredientSerializer
 
-class RecipeList(generics.ListCreateAPIView):
+class RecipeViewSet(viewsets.ModelViewSet):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
+    permission_classes = [IsOwnerOrReadOnly]
