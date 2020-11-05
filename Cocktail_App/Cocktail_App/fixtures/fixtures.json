@@ -1,0 +1,161 @@
+[
+    {
+        "model": "Cocktail_App.IngredientType",
+        "pk": 1,
+        "fields": {
+            "parentType": null,
+            "name": "Whiskey"
+      }
+    },
+    {
+        "model": "Cocktail_App.IngredientType",
+        "pk": 2,
+        "fields": {
+            "parentType": 1,
+            "name": "Bourbon"
+        }
+    },
+    {
+        "model": "Cocktail_App.IngredientType",
+        "pk": 3,
+        "fields": {
+            "parentType": null,
+            "name": "Garnish"
+        }
+    },
+    {
+        "model": "Cocktail_App.IngredientType",
+        "pk": 4,
+        "fields": {
+            "parentType": null,
+            "name": "Sour"
+        }
+    },
+    {
+        "model": "Cocktail_App.IngredientType",
+        "pk": 5,
+        "fields": {
+            "parentType": null,
+            "name": "Bitters"
+        }
+    },
+    {
+        "model": "Cocktail_App.IngredientType",
+        "pk": 6,
+        "fields": {
+            "parentType": null,
+            "name": "Sweet"
+        }
+    },
+    {
+        "model": "Cocktail_App.Ingredient",
+        "pk": 1,
+        "fields": {
+            "name": "Knob Creek Bourbon",
+            "ingredientType": 2
+        }
+    },
+    {
+        "model": "Cocktail_App.Ingredient",
+        "pk": 2,
+        "fields": {
+            "name": "Angostura Bitters",
+            "ingredientType": 5
+        }
+    },
+    {
+        "model": "Cocktail_App.Ingredient",
+        "pk": 3,
+        "fields": {
+            "name": "Orange Peel",
+            "ingredientType": 3
+        }
+    },
+    {
+        "model": "Cocktail_App.Ingredient",
+        "pk": 4,
+        "fields": {
+            "name": "Simple Syrup",
+            "ingredientType": 6
+        }
+    },
+    {
+        "model": "Cocktail_App.Recipe",
+        "pk": 1,
+        "fields": {
+            "name": "Old Fashioned",
+            "description": "An all American classic"
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeIngredient",
+        "pk": 1,
+        "fields": {
+            "recipe": 1,
+            "ingredient": 1,
+            "measure": 2,
+            "unit": "oz",
+            "note": null
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeIngredient",
+        "pk": 2,
+        "fields": {
+            "recipe": 1,
+            "ingredient": 3,
+            "measure": 1,
+            "unit": null,
+            "note": "twisted"
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeIngredient",
+        "pk": 3,
+        "fields": {
+            "recipe": 1,
+            "ingredient": 2,
+            "measure": 3,
+            "unit": "dashes",
+            "note": null
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeIngredient",
+        "pk": 4,
+        "fields": {
+            "recipe": 1,
+            "ingredient": 4,
+            "measure": 1,
+            "unit": "oz",
+            "note": null
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeStep",
+        "pk": 1,
+        "fields": {
+            "recipe": 1,
+            "description": "Add the sugar and bitters into a rocks glass, then add water, and stir until sugar is nearly dissolved",
+            "order": 1
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeStep",
+        "pk": 2,
+        "fields": {
+            "recipe": 1,
+            "description": "Fill the glass with large ice cubes, add the bourbon, and gently stir to combine",
+            "order": 2
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeStep",
+        "pk": 3,
+        "fields": {
+            "recipe": 1,
+            "description": "Express the oil of an orange peel over the glass, then drop in",
+            "order": 2
+        }
+    }
+  ]
