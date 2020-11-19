@@ -14,19 +14,19 @@ class IngredientSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ingredient
-        fields = ['name', 'ingredientType']
+        fields = ['id', 'name', 'ingredientType']
         
 class RecipeIngredientSerializer(serializers.ModelSerializer):
     ingredient = IngredientSerializer(many=False, read_only=True)
 
     class Meta:
         model = RecipeIngredient
-        fields = ['ingredient', 'measure', 'unit', 'note']
+        fields = ['id', 'ingredient', 'measure', 'unit', 'note']
 
 class RecipeStepSerializer(serializers.ModelSerializer):
     class Meta:
         model = RecipeStep
-        fields = ['recipe', 'description', 'order']
+        fields = ['id', 'recipe', 'description', 'order']
 
 class RecipeSerializer(serializers.ModelSerializer):
     ingredients = RecipeIngredientSerializer(source='recipeingredient_set', many=True)
@@ -34,4 +34,4 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Recipe
-        fields = ['name', 'description', 'steps', 'ingredients']       
+        fields = ['id', 'name', 'description', 'steps', 'ingredients']       
