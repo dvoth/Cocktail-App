@@ -48,10 +48,34 @@
         }
     },
     {
+        "model": "Cocktail_App.IngredientType",
+        "pk": 7,
+        "fields": {
+            "parentType": null,
+            "name": "Liqueur"
+        }
+    },
+    {
+        "model": "Cocktail_App.IngredientType",
+        "pk": 8,
+        "fields": {
+            "parentType": null,
+            "name": "Gin"
+        }
+    },
+    {
+        "model": "Cocktail_App.IngredientType",
+        "pk": 9,
+        "fields": {
+            "parentType": null,
+            "name": "Fortified Wine"
+        }
+    },
+    {
         "model": "Cocktail_App.Ingredient",
         "pk": 1,
         "fields": {
-            "name": "Knob Creek Bourbon",
+            "name": "Bourbon",
             "ingredientType": 2
         }
     },
@@ -80,11 +104,43 @@
         }
     },
     {
+        "model": "Cocktail_App.Ingredient",
+        "pk": 5,
+        "fields": {
+            "name": "Gin",
+            "ingredientType": 8
+        }
+    },
+    {
+        "model": "Cocktail_App.Ingredient",
+        "pk": 6,
+        "fields": {
+            "name": "Sweet Vermouth",
+            "ingredientType": 9
+        }
+    },
+    {
+        "model": "Cocktail_App.Ingredient",
+        "pk": 7,
+        "fields": {
+            "name": "Campari",
+            "ingredientType": 7
+        }
+    },
+    {
         "model": "Cocktail_App.Recipe",
         "pk": 1,
         "fields": {
             "name": "Old Fashioned",
             "description": "An all American classic"
+        }
+    },
+    {
+        "model": "Cocktail_App.Recipe",
+        "pk": 2,
+        "fields": {
+            "name": "Negroni",
+            "description": "Yep, this one has gin"
         }
     },
     {
@@ -132,6 +188,39 @@
         }
     },
     {
+        "model": "Cocktail_App.RecipeIngredient",
+        "pk": 5,
+        "fields": {
+            "recipe": 2,
+            "ingredient": 5,
+            "measure": 1,
+            "unit": "oz",
+            "note": null
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeIngredient",
+        "pk": 6,
+        "fields": {
+            "recipe": 2,
+            "ingredient": 6,
+            "measure": 1,
+            "unit": "oz",
+            "note": null
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeIngredient",
+        "pk": 7,
+        "fields": {
+            "recipe": 2,
+            "ingredient": 7,
+            "measure": 1,
+            "unit": "oz",
+            "note": null
+        }
+    },
+    {
         "model": "Cocktail_App.RecipeStep",
         "pk": 1,
         "fields": {
@@ -155,6 +244,33 @@
         "fields": {
             "recipe": 1,
             "description": "Express the oil of an orange peel over the glass, then drop in",
+            "order": 3
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeStep",
+        "pk": 4,
+        "fields": {
+            "recipe": 2,
+            "description": "Add the gin, Campari and sweet vermouth to a mixing glass filled with ice, and stir until well-chilled.",
+            "order": 1
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeStep",
+        "pk": 5,
+        "fields": {
+            "recipe": 2,
+            "description": "Strain into a rocks glass filled with large ice cubes.",
+            "order": 2
+        }
+    },
+    {
+        "model": "Cocktail_App.RecipeStep",
+        "pk": 6,
+        "fields": {
+            "recipe": 2,
+            "description": "Garnish with an orange peel.",
             "order": 3
         }
     }
