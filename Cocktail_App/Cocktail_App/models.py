@@ -18,6 +18,9 @@ UNITS = [
     ('dashes', 'dashes')
 ]
 
+def upload_path(instance, filename):
+    return '/'.join([type(instance).__name__, str(instance.name), filename])
+
 class IngredientType(models.Model):
     name = models.CharField(max_length=32)
     parentType = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
@@ -25,10 +28,12 @@ class IngredientType(models.Model):
 class  Ingredient(models.Model):
     name = models.CharField(max_length=32)
     ingredientType = models.ForeignKey(IngredientType, on_delete=models.CASCADE)
+    image = models.ImageField(blank=True, null=True, upload_to=upload_path)
 
 class Recipe(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField(max_length = 1000)
+    image = models.ImageField(blank=True, null=True, upload_to=upload_path)
 
 class RecipeIngredient(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
