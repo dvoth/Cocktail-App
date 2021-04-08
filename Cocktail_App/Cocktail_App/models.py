@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 UNITS = [
     ('tsp', 'teaspoon'),
@@ -19,6 +20,7 @@ UNITS = [
 ]
 
 def upload_path(instance, filename):
+    # Stores in a path like "/media/Ingredients/Gin/bombay_sapphire.jpg"
     return '/'.join([type(instance).__name__, str(instance.name), filename])
 
 class IngredientType(models.Model):
@@ -46,3 +48,21 @@ class RecipeStep(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     description = models.CharField(max_length=1000)
     order = models.IntegerField()
+
+class UserRecipe(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    favorited = models.BooleanField()
+    lastMade = models.DateField(auto_now=True)
+
+class UserIngredient(models.Model):
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    quantity = models.IntegerField()
+    unit = models.CharField(max_length=32, choices=UNITS, null=True)
+
+class ShoppingListItem(models.Model):
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    quantity = models.IntegerField()
+    unit = models.CharField(max_length=32, choices=UNITS, null=True)
