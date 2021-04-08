@@ -34,4 +34,13 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Recipe
-        fields = ['id', 'name', 'description', 'steps', 'ingredients', 'image']       
+        fields = ['id', 'name', 'description', 'steps', 'ingredients', 'image']
+
+class UserSerializer(serializers.ModelSerializer):
+    shoppingList = serializers.PrimaryKeyRelatedField(many=True, queryset=ShoppingListItem.objects.all())
+    ingredients = serializers.PrimaryKeyRelatedField(many=True, queryset=Ingredient.objects.all())
+    recipes = serializers.PrimaryKeyRelatedField(many=True, queryset=Recipe.objects.all())
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'shoppingList', 'ingredients', 'recipes']

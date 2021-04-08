@@ -9,6 +9,7 @@ from Cocktail_App import views
 router = DefaultRouter()
 router.register(r'ingredients', views.IngredientViewSet)
 router.register(r'recipes', views.RecipeViewSet)
+router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
