@@ -44,3 +44,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'shoppingList', 'ingredients', 'recipes']
+
+class UserIngredientSerializer(serializers.ModelSerializer):
+    ingredient = serializers.PrimaryKeyRelatedField(queryset=Ingredient.objects.all())
+    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+
+    class Meta:
+        model=UserIngredient
+        fields = ['id', 'ingredient', 'user', 'quantity', 'unit']

@@ -27,7 +27,7 @@ class IngredientType(models.Model):
     name = models.CharField(max_length=32)
     parentType = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
 
-class  Ingredient(models.Model):
+class Ingredient(models.Model):
     name = models.CharField(max_length=32)
     ingredientType = models.ForeignKey(IngredientType, on_delete=models.CASCADE)
     image = models.ImageField(blank=True, null=True, upload_to=upload_path)
