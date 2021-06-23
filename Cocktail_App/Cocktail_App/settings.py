@@ -26,6 +26,8 @@ SECRET_KEY = 'fneg-_6rj1+o!$xi_hxq$1^7vvn#@1(7=i6uzm689$ugsf$uw='
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.1.245']
+# ALLOWED_HOSTS = ['10.0.0.14']
+
 
 
 # Application definition
@@ -39,7 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Cocktail_App.apps.CocktailAppConfig',
     'rest_framework',
+    'knox'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

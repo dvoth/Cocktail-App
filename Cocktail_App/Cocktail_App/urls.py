@@ -13,6 +13,7 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
+    path('', include('accounts.urls')),
     path('', include(router.urls)),
 ]
 
