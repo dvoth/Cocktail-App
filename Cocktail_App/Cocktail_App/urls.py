@@ -4,17 +4,18 @@ from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework.routers import DefaultRouter
 
-from Cocktail_App import views
+from Cocktail_App import views as cocktail_views
+from accounts import views as account_views
 
 router = DefaultRouter()
-router.register(r'ingredients', views.IngredientViewSet)
-router.register(r'recipes', views.RecipeViewSet)
-router.register(r'users', views.UserViewSet)
+router.register(r'ingredients', cocktail_views.IngredientViewSet)
+router.register(r'recipes', cocktail_views.RecipeViewSet)
+router.register(r'users', account_views.UserViewSet)
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
+    path('api/', include(router.urls)),
     path('', include('accounts.urls')),
-    path('', include(router.urls)),
 ]
 
 # urls for serving images
