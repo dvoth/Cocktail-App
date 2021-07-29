@@ -10,6 +10,7 @@ from accounts import views as account_views
 router = DefaultRouter()
 router.register(r'ingredients', cocktail_views.IngredientViewSet)
 router.register(r'recipes', cocktail_views.RecipeViewSet)
+router.register(r'available-recipes', cocktail_views.AvailableRecipesViewset, basename='Recipe')
 router.register(r'users', account_views.UserViewSet)
 
 urlpatterns = [
