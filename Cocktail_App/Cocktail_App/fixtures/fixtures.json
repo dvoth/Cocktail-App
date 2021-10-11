@@ -76,7 +76,8 @@
         "pk": 1,
         "fields": {
             "name": "Bourbon",
-            "ingredientType": 2
+            "ingredientType": 2,
+            "image": "Ingredient/Bourbon/bullet.png"
         }
     },
     {
@@ -84,7 +85,8 @@
         "pk": 2,
         "fields": {
             "name": "Angostura Bitters",
-            "ingredientType": 5
+            "ingredientType": 5,
+            "image": "Ingredient/Angostura Bitters/angostura_bitters.png"
         }
     },
     {
@@ -92,7 +94,8 @@
         "pk": 3,
         "fields": {
             "name": "Orange Peel",
-            "ingredientType": 3
+            "ingredientType": 3,
+            "image": "Ingredient/Orange Peel/orange.png"
         }
     },
     {
@@ -100,7 +103,8 @@
         "pk": 4,
         "fields": {
             "name": "Simple Syrup",
-            "ingredientType": 6
+            "ingredientType": 6,
+            "image": "Ingredient/Simple Syrup/simple_syrup.png"
         }
     },
     {
@@ -108,7 +112,8 @@
         "pk": 5,
         "fields": {
             "name": "Gin",
-            "ingredientType": 8
+            "ingredientType": 8,
+            "image": "Ingredient/Gin/bombay_sapphire.png"
         }
     },
     {
@@ -116,7 +121,8 @@
         "pk": 6,
         "fields": {
             "name": "Sweet Vermouth",
-            "ingredientType": 9
+            "ingredientType": 9,
+            "image": "Ingredient/Sweet Vermouth/sweet_vermouth.png"
         }
     },
     {
@@ -124,7 +130,8 @@
         "pk": 7,
         "fields": {
             "name": "Campari",
-            "ingredientType": 7
+            "ingredientType": 7,
+            "image": "Ingredient/Campari/campari.png"
         }
     },
     {
@@ -132,7 +139,8 @@
         "pk": 1,
         "fields": {
             "name": "Old Fashioned",
-            "description": "An all American classic"
+            "description": "An all American classic",
+            "image": "recipe/Old Fashioned/old_fashioned.jpg"
         }
     },
     {
@@ -140,7 +148,8 @@
         "pk": 2,
         "fields": {
             "name": "Negroni",
-            "description": "Yep, this one has gin"
+            "description": "Yep, this one has gin",
+            "image": "recipe/Negroni/negroni.jpeg"
         }
     },
     {
