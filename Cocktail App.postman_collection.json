@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "b858f4f2-c679-401d-a852-3080b2dd0f25",
+		"name": "Cocktail App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://192.168.1.245:8000/users/1/?ingredientId=3&userId=1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.1.245:8000/users/1/?ingredientId=3&userId=1",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"245"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"1",
+						""
+					],
+					"query": [
+						{
+							"key": "ingredientId",
+							"value": "3"
+						},
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://192.168.1.18:8000/api/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"johnstopher\",\r\n    \"email\": \"jdoe@gmail.com\",\r\n    \"password\": \"123456\"\r\n}"
+				},
+				"url": {
+					"raw": "http://192.168.1.18:8000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"18"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				},
+				"description": "register new user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://192.168.1.245:8000/api/auth/login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"johnstopher\",\r\n    \"password\": \"123456\"\r\n}"
+				},
+				"url": {
+					"raw": "http://192.168.1.245:8000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"245"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				},
+				"description": "logs in user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://192.168.1.245:8000/api/available-recipes/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 6712d649472bf1cce55e857eb9fe8a94f36a1a71c861307fcb55002840d6281a",
+						"type": "text"
+					},
+					{
+						"key": "Token",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://192.168.1.245:8000/api/available-recipes/",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"245"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"available-recipes",
+						""
+					]
+				},
+				"description": "Gets all available recipes a current user can make"
+			},
+			"response": []
+		}
+	]
+}
