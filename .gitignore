@@ -3,3 +3,5 @@ Cocktail_App/env/
 __pycache__/
 *.sqlite3
 media/
+Cocktail_App/.DS_Store
+.DS_Store
