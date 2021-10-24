@@ -16,7 +16,7 @@ router.register(r'user/ingredients', account_views.UserIngredientsViewSet, basen
 urlpatterns = [
     path(r'admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('', include('accounts.urls')),
+    path('api/', include('accounts.urls')),
 ]
 
 # urls for serving images
