@@ -113,7 +113,7 @@
         "fields": {
             "name": "Gin",
             "ingredientType": 8,
-            "image": "Ingredient/Gin/bombay_sapphire.png"
+            "image": "Ingredient/Gin/bombay_sapphire.jpeg"
         }
     },
     {
@@ -122,7 +122,7 @@
         "fields": {
             "name": "Sweet Vermouth",
             "ingredientType": 9,
-            "image": "Ingredient/Sweet Vermouth/sweet_vermouth.png"
+            "image": "Ingredient/Sweet Vermouth/sweet_vermouth.jpeg"
         }
     },
     {
@@ -131,7 +131,7 @@
         "fields": {
             "name": "Campari",
             "ingredientType": 7,
-            "image": "Ingredient/Campari/campari.png"
+            "image": "Ingredient/Campari/campari.jpg"
         }
     },
     {

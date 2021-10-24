@@ -10,8 +10,8 @@ from accounts import views as account_views
 router = DefaultRouter()
 router.register(r'ingredients', cocktail_views.IngredientViewSet)
 router.register(r'recipes', cocktail_views.RecipeViewSet)
-router.register(r'available-recipes', cocktail_views.AvailableRecipesViewset, basename='Recipe')
 router.register(r'users', account_views.UserViewSet)
+router.register(r'user/available-recipes', account_views.AvailableRecipesViewset, basename='available-recipes')
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
