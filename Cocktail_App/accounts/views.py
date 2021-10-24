@@ -13,14 +13,15 @@ from accounts.serializers import UserIngredientSerializer
 from knox.auth import TokenAuthentication
 
 # Create your views here.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+class UserIngredientsViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request, pk):
-        ingredientId = request.data['ingredientId']
-        user = User.objects.get(id=pk)
-        userIngredient = user.ingredients.filter(ingredient_id=ingredientId, user_id=pk)
+        ingredientId = pk
+        user = request.user
+        userIngredient = user.ingredients.filter(ingredient_id=ingredientId, user_id=user.id)
 
         # look into the UniqueTogether validator on this model to prevent multiple entries https://www.django-rest-framework.org/api-guide/validators/#uniquetogethervalidator
         if (not userIngredient):
