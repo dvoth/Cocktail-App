@@ -5,31 +5,51 @@ from django.http import JsonResponse
 from Cocktail_App.models import Ingredient
 from Cocktail_App.models import RecipeIngredient
 from Cocktail_App.models import Recipe
-from Cocktail_App.serializers import RecipeSerializer
 from accounts.models import UserIngredient
 from accounts.models import User
+from accounts.serializers import IngredientSerializer
+from Cocktail_App.serializers import RecipeSerializer
 from accounts.serializers import UserSerializer
 from accounts.serializers import UserIngredientSerializer
 from knox.auth import TokenAuthentication
 
 # Create your views here.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+class UserIngredientsViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
-    def post(self, request, pk):
-        ingredientId = request.data['ingredientId']
-        user = User.objects.get(id=pk)
-        userIngredient = user.ingredients.filter(ingredient_id=ingredientId, user_id=pk)
+    # this is automagically passed to arguments of post and delete methods
+    lookup_field = "ingredient_id"
+    
+    def get_queryset(self):
+        currentUser = self.request.user
+        queryset = UserIngredient.objects.filter(user=currentUser)
+        return queryset
+
+    def post(self, request, ingredient_id):
+        user = request.user
+        userIngredient = user.ingredients.filter(ingredient_id=ingredient_id, user_id=user.id)
 
         # look into the UniqueTogether validator on this model to prevent multiple entries https://www.django-rest-framework.org/api-guide/validators/#uniquetogethervalidator
         if (not userIngredient):
-            ingredient = Ingredient.objects.get(pk=ingredientId)
+            ingredient = Ingredient.objects.get(pk=ingredient_id)
             addedIngredient = UserIngredient.objects.create(user=user, ingredient=ingredient, quantity=0, unit="none")
             return JsonResponse(UserIngredientSerializer(addedIngredient).data, safe=False)
         else:
             return JsonResponse("failed", safe=False)
 
+    def destroy(self, request, ingredient_id):
+        user = request.user
+        ingredientToRemove = user.ingredients.filter(ingredient_id=ingredient_id, user_id=user.id)
+
+        if (ingredientToRemove):
+            removedIngredient = UserIngredient.objects.get(user_id=user.id, ingredient_id=ingredient_id)
+            ingredientToRemove.delete()
+            return JsonResponse(UserIngredientSerializer(removedIngredient).data, safe=False)
+        else:
+            return JsonResponse("{failed: 'failed'}", safe=False)
+        
 class AvailableRecipesViewset(viewsets.ModelViewSet):
     serializer_class = RecipeSerializer
     authentication_classes = (TokenAuthentication,)
