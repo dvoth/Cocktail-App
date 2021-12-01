@@ -26,7 +26,7 @@ SECRET_KEY = 'fneg-_6rj1+o!$xi_hxq$1^7vvn#@1(7=i6uzm689$ugsf$uw='
 DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.1.7']
-# ALLOWED_HOSTS = ['192.168.1.18']
+# ALLOWED_HOSTS = ['192.168.1.13']
 
 
 
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'Cocktail_App.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,3 +132,6 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')

@@ -5,3 +5,4 @@ __pycache__/
 media/
 Cocktail_App/.DS_Store
 .DS_Store
+*.log
