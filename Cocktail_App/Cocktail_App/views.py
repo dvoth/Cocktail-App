@@ -1,5 +1,4 @@
 from rest_framework import viewsets
-
 from accounts.models import UserIngredient
 from Cocktail_App.models import Ingredient
 from Cocktail_App.models import Recipe
@@ -16,4 +15,5 @@ class RecipeViewSet(viewsets.ModelViewSet):
     queryset = Recipe.objects.all()
     serializer_class = RecipeSerializer
     permission_classes = [IsOwnerOrReadOnly]
- 
+
+
