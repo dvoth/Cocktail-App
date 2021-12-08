@@ -35,6 +35,10 @@ class Recipe(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField(max_length = 1000)
     image = models.ImageField(blank=True, null=True, upload_to=upload_path)
+    
+    # If this field is null, it means that the recipe is a "master" recipe provided by default
+    # Otherwise it is a custom user recipe
+    user = models.ForeignKey('accounts.User', null=True, on_delete=models.CASCADE)
 
 class RecipeIngredient(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
